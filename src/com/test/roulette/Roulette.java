@@ -65,12 +65,37 @@ public class Roulette {
 					   out.setStrResult("LOSE");
 					   out.setStrWinnings(0);
 				   }
+			    }else {    //if(strBetValue.contentEquals(new StringBuffer("ODD")))
+			    	//else for EVEN-ODD bets
+			    	if (rouletteNum % 2 != 0) // Roullette Num is ODD
+			    	{	
+			    		if(strBetValue.trim().equals("ODD"))
+			    		{
+			    			System.out.println("*****Player bet ODD Number---");
+			    			out.setStrResult("WIN");
+							out.setStrWinnings(iamt*2);
+			    		}else {
+			    			out.setStrResult("LOSE");
+							out.setStrWinnings(0);
+			    		}
+			    		//if(strBetValue.contentEquals(new StringBuffer("ODD")))			    		
+			    	}
 			    }
 			   
 			   outcome.add(out);
 			   //System.out.println(" Player : "+ strName + " Placed bet on : " +strBetValue+ " for Amount : "+strAmount);
 			   
 		   }//End For Bets
+		   
+		   //OUTPUT to console 
+		   System.out.println("Player   "+  " Bet  "+ " Outcome  "+ "  Winnings ");
+		   System.out.println("------------------------------------------- ");
+		   //Iterate thru the OUTCOMES
+		   for(Outcome out: outcome) {
+			   
+			   System.out.println(out.getStrPlayerName()+ "   " +out.getStrBet()+ "    " +out.getStrResult()+ "       " +out.getStrWinnings());
+			   
+		   }
 		   
 		   
 		   
@@ -92,6 +117,10 @@ public class Roulette {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-   }
+       }
+	   
+	   public static void WriteFileForPlayers() {
+		   
+	   }
 
 }
