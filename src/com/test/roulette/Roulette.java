@@ -79,6 +79,17 @@ public class Roulette {
 							out.setStrWinnings(0);
 			    		}
 			    		//if(strBetValue.contentEquals(new StringBuffer("ODD")))			    		
+			    	}else { // Roullette Num is EVEN
+			    		System.out.println("EVEN or ODD??? ELSE  " + strBetValue);
+			    		if(strBetValue.trim().equals("EVEN"))
+			    		{
+			    			System.out.println("*****Player bet EVEN Number---");
+			    			out.setStrResult("WIN");
+							out.setStrWinnings(iamt*2);
+			    		}else {
+			    			out.setStrResult("LOSE");
+							out.setStrWinnings(0);
+			    		}
 			    	}
 			    }
 			   
@@ -95,12 +106,9 @@ public class Roulette {
 			   
 			   System.out.println(out.getStrPlayerName()+ "   " +out.getStrBet()+ "    " +out.getStrResult()+ "       " +out.getStrWinnings());
 			   
-		   }
+		   }		   
 		   
-		   
-		   
-		   
-	   }
+	   }//Main End
 	
 	   public static void ReadFileForPlayers() {
 		   
