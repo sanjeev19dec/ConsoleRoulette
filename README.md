@@ -8,3 +8,5 @@ The inputs are read for defined set of intervals in seconds.
 Create an Output class with setter and getter.
 
 The Class holds the Players details....Name, Bet, Amount, Winning Status
+
+New Arraylist for storing Output object

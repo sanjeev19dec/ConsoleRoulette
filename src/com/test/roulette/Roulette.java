@@ -21,6 +21,7 @@ public class Roulette {
 		   Scanner scanner = new Scanner(System.in); // Read the console inputs
 		   String[] tokens = null; //Collect the tokens
 		   ArrayList<String> myBets = new ArrayList<String>(); //Store the tokens
+		   ArrayList<Outcome> outcome = new ArrayList<Outcome>(); //Stire the Outcomes
 		   
 		   BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		   long startTime = System.currentTimeMillis();
@@ -47,7 +48,29 @@ public class Roulette {
 			   String strBetValue = stok.nextToken(); //Bet
 			   String strAmount = stok.nextToken();//Amount 
 			   iamt = Integer.parseInt(strAmount.trim());
-		   }
+			   
+			   boolean value = strBetValue.matches("[a-zA-Z ]*\\d+.*");
+			   //System.out.println("Is NUMERIC - - - " +value);
+			   int ibetNum =0;
+			   Outcome out = new Outcome(); //Outcome of each bet, comand line input
+			   out.setStrPlayerName(strName);
+			   out.setStrBet(strBetValue);
+			   if(value) { // If for the numeric bet
+				   ibetNum = Integer.parseInt(strBetValue.trim());
+				   if (ibetNum == rouletteNum) {
+					   out.setStrResult("WIN");
+					   out.setStrWinnings(iamt*36);
+					   System.out.println("WOWW YOU WIN");
+				   }else {
+					   out.setStrResult("LOSE");
+					   out.setStrWinnings(0);
+				   }
+			    }
+			   
+			   outcome.add(out);
+			   //System.out.println(" Player : "+ strName + " Placed bet on : " +strBetValue+ " for Amount : "+strAmount);
+			   
+		   }//End For Bets
 		   
 		   
 		   
